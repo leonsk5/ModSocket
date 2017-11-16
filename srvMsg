@@ -1,0 +1,26 @@
+import socket #Importa o modulo
+
+host = '' #host local
+port = 5000 #POrta padrão
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #Soquete do protocolo TCP
+
+s.bind((host, port)) # Escuta no ip local, porta
+s.listen(1) # Gerano maximo uma coneção
+
+con, adrr = s.accept() # Cria duas variaveis a segunda para aceitar a conexão com cliente
+print('Conectado por', adrr)
+
+while 1:   #Cria um loop até ser executado pelo cliente a tarefa
+    msg = con.recv(1024) #Recebe e da tamanho aos dados enviados pelo cliente
+    if not msg:  #Gera condição para os dados ser corretamente o pedido pelo servidor
+        break    #Para o servidor, caso não for feita a condição
+    print(msg)
+con.close() #Fecha a varivel de recebimento dos dados
+s.close()  #Fecha a conexão
+
+
+
+
+
+
