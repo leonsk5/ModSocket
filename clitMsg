@@ -8,6 +8,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #Soquete do protocolo TCP
 s.connect((host, port)) #Fazendo conexão
 
 s.send('Leonsk'.encode()) #Enviando Messagem
+#s.send(input('Digite algo: ') #Aguarda o usuario a digitar algo
 
 s.close() #Fecha a conexão
 
